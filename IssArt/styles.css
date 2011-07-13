@@ -1,0 +1,25 @@
+.art-desktop .x-panel-body {
+	background-image: url("images/desktop.jpg") !important;
+}
+
+.art-notepad-icon {
+	background-image: url("images/notepad.png") !important;
+}
+
+.art-profile-icon {
+	background-image: url("images/profile.png") !important;
+}
+
+.console-item-content {
+	padding: 0 5 5 5;
+}
+
+.console-item-header {
+	color: blue;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.console-icon {
+	background-image: url("images/console.png") !important;
+}

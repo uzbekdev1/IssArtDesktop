@@ -1,0 +1,46 @@
+{
+	"button": {
+		"close"                       : "Close",
+		"open"                        : "Open",
+		"save"                        : "Save",
+		"saveAs"                      : "Save as"
+	},
+	
+	"common": {
+		"name"                        : "Name"
+	},
+	
+	"message": {
+		"confirm"                     : "Confirm",
+		"failure"                     : "Failure"
+	},
+	
+	"progress": {
+		"loading"                     : "Loading",
+		"saving"                      : "Saving"
+	},
+	
+	"notepad": {
+		"deleteNotepad"               : "Delete Notepad",
+		"doYouWantToSaveContent"      : "Do you want to save content?",
+		"notepad"                     : "Notepad",
+		"notepadName"                 : "Notepad name",
+		"runNotepadApplication"       : "Run Notepad application",
+		"selectNotepadFile"           : "Select Notepad file",
+		"shortContent"                : "Short content"
+	},
+	
+	"profile": {
+		"birthDate"                   : "Birth date",
+		"experienceMonths"            : "Experience, months",
+		"profileEditor"               : "Profile Editor",
+		"receiveNotifications"        : "Receive notifications",
+		"runProfileEditorApplication" : "Run Profile Editor application"
+	},
+	
+	"console": {
+		"ajaxConsole"                 : "Ajax console",
+		"noRequestsSentYet"           : "No requests sent yet",
+		"showAjaxConsole"             : "Show Ajax console"
+	}
+}
