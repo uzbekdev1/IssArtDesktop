@@ -29,9 +29,9 @@ Ext.define("IssArt.notepad.Picker", {
 		this.grid = Ext.create("IssArt.notepad.picker.Grid", {
 			region    : "center",
 			listeners : {
-				rowclick    : this.onRowClick,
-				rowdblclick : this.onRowDblClick,
-				scope       : this
+				itemclick    : this.onRowClick,
+				itemdblclick : this.onRowDblClick,
+				scope        : this
 			}
 		});
 		
@@ -65,7 +65,7 @@ Ext.define("IssArt.notepad.Picker", {
 		
 		this.closeButton = Ext.create("Ext.Button", {
 			text    : IssArt.locale.Data.button.close,
-			handler : this.onEsc,
+			handler : this.onClose,
 			scope   : this
 		});
 		
@@ -79,15 +79,15 @@ Ext.define("IssArt.notepad.Picker", {
 		this.callParent(arguments);
 	},
 	
-	onRowClick: function(grid, number, e)
+	onRowClick: function(grid, record)
 	{
-		this.nameField.setValue(this.grid.store.getAt(number).get("name"));
+		this.nameField.setValue(record.get("name"));
 	},
 	
-	onRowDblClick: function(grid, number, e)
+	onRowDblClick: function(grid, record)
 	{
-		this.fireEvent("select", this, this.grid.store.getAt(number).get("name"));
-		this.onEsc();
+		this.fireEvent("select", this, record.get("name"));
+		this.onClose();
 	},
 	
 	onSelectClick: function()
@@ -96,6 +96,11 @@ Ext.define("IssArt.notepad.Picker", {
 			return;
 		
 		this.fireEvent("select", this, this.nameField.getValue());
-		this.onEsc();
+		this.onClose();
+	},
+	
+	onClose: function()
+	{
+		this[this.closeAction]();
 	}
 });
