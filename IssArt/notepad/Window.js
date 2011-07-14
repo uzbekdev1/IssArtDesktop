@@ -2,7 +2,6 @@ Ext.define("IssArt.notepad.Window", {
 	extend: "Ext.window.Window",
 	
 	requires: [
-		"Ext.Ajax",
 		"Ext.button.Button",
 		"Ext.form.field.HtmlEditor",
 		"Ext.toolbar.Toolbar",
