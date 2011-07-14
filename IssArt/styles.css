@@ -1,25 +1,31 @@
-.art-desktop .x-panel-body {
+.issart-desktop .x-panel-body
+{
 	background-image: url("images/desktop.jpg") !important;
 }
 
-.art-notepad-icon {
+.issart-notepad-icon
+{
 	background-image: url("images/notepad.png") !important;
 }
 
-.art-profile-icon {
+.issart-profile-icon
+{
 	background-image: url("images/profile.png") !important;
 }
 
-.console-item-content {
+.issart-console-item-content
+{
 	padding: 0 5 5 5;
 }
 
-.console-item-header {
+.issart-console-item-header
+{
 	color: blue;
 	font-weight: bold;
 	padding-top: 5px;
 }
 
-.console-icon {
+.issart-console-icon
+{
 	background-image: url("images/console.png") !important;
 }

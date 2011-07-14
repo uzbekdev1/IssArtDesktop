@@ -4,6 +4,7 @@ Ext.define("IssArt.framework.Desktop", {
 	requires: [
 		"Ext.button.Button",
 		"Ext.toolbar.Toolbar",
+		
 		"IssArt.framework.Application",
 		"IssArt.framework.ApplicationType"
 	],
@@ -12,13 +13,15 @@ Ext.define("IssArt.framework.Desktop", {
 		applicationTypes: null
 	},
 	
+	// override
+	cls    : "issart-desktop",
+	border : false,
+	
 	// private
 	bottomToolbar : null,
 	applications  : null,
 	
-	cls    : "art-desktop",
-	border : false,
-	
+	// override
 	initComponent: function()
 	{
 		this.bottomToolbar = Ext.create("Ext.toolbar.Toolbar", {
@@ -33,6 +36,7 @@ Ext.define("IssArt.framework.Desktop", {
 		this.callParent(arguments);
 	},
 	
+	// override
 	afterRender: function()
 	{
 		this.callParent(arguments);
@@ -42,9 +46,10 @@ Ext.define("IssArt.framework.Desktop", {
 		this.setApplicationTypes(applicationTypes);
 	},
 	
+	// public
 	addApplicationType: function(applicationType)
 	{
-		this.applicationTypes.push(application);
+		this.applicationTypes.push(applicationType);
 		if (!this.rendered)
 			return;
 		
@@ -57,6 +62,7 @@ Ext.define("IssArt.framework.Desktop", {
 		this.bottomToolbar.add(button);
 	},
 	
+	// public
 	runApplication: function(provider)
 	{
 		var application = new provider();
@@ -64,6 +70,7 @@ Ext.define("IssArt.framework.Desktop", {
 		application.run();
 	},
 	
+	// private
 	applyApplicationTypes: function(value)
 	{
 		if (!this.rendered)
