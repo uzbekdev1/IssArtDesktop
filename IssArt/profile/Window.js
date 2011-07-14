@@ -3,7 +3,6 @@ Ext.define("IssArt.profile.Window", {
 	
 	requires: [
 		"Ext.button.Button",
-		"Ext.layout.container.Fit",
 		
 		"IssArt.profile.Form",
 		"IssArt.util.Util"

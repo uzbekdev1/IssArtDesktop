@@ -101,89 +101,12 @@ Server.Api["issart/action/getnotepads"] = function(params) {
 	
 	return result;
 }
-/*
-// Имитация консоли для вывода запросов
-Server.Console.textArea = '<textarea readonly="readonly" style="' +
-	'border-left-width-ltr-source: physical; ' +
-	'border-left-width-rtl-source: physical; ' +
-	'border-left-width-value: 0; ' +
-	'border-right-width-ltr-source: physical; ' +
-	'border-right-width-rtl-source: physical; ' +
-	'border-right-width-value: 0; ' +
-	'width: 100%; height: auto;" ';
 
-Server.Console.Item = Ext.extend(Ext.Panel, {
-	// Contains:
-	// url		: String
-	// method	: String
-	// params	: String
-	// result	: String
-	value	: {},
-	anchor	: '100%',
-	style	: "padding-bottom: 5px;",
+Ext.require([
+	"Ext.data.Connection",
 	
-	titleTpl: new Ext.XTemplate('{method}: {url}'),
-	
-	contentTpl: new Ext.XTemplate(
-		'<div class="console-item-content">',
-			'<div class="console-item-header">Params:</div>',
-			Server.Console.textArea + 'rows=3>{params}</textarea>',
-			'<div class="console-item-header">Result:</div>',
-			Server.Console.textArea + 'rows=6>{result}</textarea>',
-		'</div>'
-	),
-	
-	initComponent: function() {
-		this.collapsible	= true;
-		this.collapsed		= true;
-		
-		this.title	= this.  titleTpl.apply(this.value);
-		this.html	= this.contentTpl.apply(this.value);
-		
-		Server.Console.Item.superclass.initComponent.call(this);
-	}
-});
-
-Server.Console.Window = Ext.extend(Ext.Window, {
-	title		: "Ajax console",
-	value		: {},
-	x			: 0,
-	y			: 0,
-	width		: 600,
-	height		: 200,
-	bodyStyle	: "padding: 5px 20px 5px 5px; overflow-y: auto;",
-	closeAction	: 'hide',
-	
-	initComponent: function() {
-		this.items = [ new Server.Console.Item({
-			value: this.value
-		})];
-		this.layout = 'form';
-		
-		Server.Console.Window.superclass.initComponent.call(this);
-	},
-	
-	push: function(value) {
-		this.add(new Server.Console.Item({
-			value: value
-		}));
-	}
-});
-
-Server.Console.Application = Ext.extend(Art.Framework.Application, {
-	run: function() {
-		if (Server.Console.window) {
-			Server.Console.window.show();
-		}
-		else {
-			Ext.Msg.alert(
-				Art.Locale.Message.failure,
-				Art.Locale.Console.noRequests);
-		}
-	}
-});
-*/
-Ext.require("Ext.data.Connection", function() {
+	"IssArt.console.model.ItemStore"
+], function() {
 	
 	var request = Ext.data.Connection.prototype.request;
 	
@@ -207,25 +130,16 @@ Ext.require("Ext.data.Connection", function() {
 			
 			var response = {
 				responseText: Ext.encode(result)
-			}
-			/*
-			var consoleValue = {
-				url		: config.url,
-				method	: config.method,
-				params	: Ext.encode(config.params),
-				result	: response.responseText
 			};
 			
-			if (Server.Console.window) {
-				Server.Console.window.push(consoleValue);
-			}
-			else {
-				Server.Console.window = new Server.Console.Window({
-					value: consoleValue
-				});
-			}
-			Server.Console.window.doLayout();
-			*/
+			var consoleItem = Ext.create("IssArt.console.model.Item", {
+				url    : config.url,
+				method : config.method,
+				params : Ext.encode(config.params),
+				result : response.responseText
+			});
+			
+			IssArt.console.model.ItemStore.add(consoleItem);
 			
 			Ext.callback(config.success, config.scope, [response, config]);
 			Ext.callback(config.callback, config.scope, [config, true, response]);

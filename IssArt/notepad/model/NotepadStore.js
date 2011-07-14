@@ -16,5 +16,5 @@ Ext.define("IssArt.notepad.model.NotepadStore", {
 			type : "json",
 			root : "notepads"
 		}
-	},
+	}
 });

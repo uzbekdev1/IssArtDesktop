@@ -5,7 +5,6 @@ Ext.define("IssArt.notepad.Picker", {
 		"Ext.button.Button",
 		"Ext.form.Panel",
 		"Ext.form.field.Text",
-		"Ext.layout.container.Border",
 		
 		"IssArt.notepad.picker.Grid"
 	],
@@ -18,6 +17,7 @@ Ext.define("IssArt.notepad.Picker", {
 	title  : IssArt.locale.Data.notepad.selectNotepadFile,
 	width  : 400,
 	height : 250,
+	modal  : true,
 	
 	// private
 	grid      : null,

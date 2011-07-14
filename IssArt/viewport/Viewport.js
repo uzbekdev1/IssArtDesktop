@@ -2,11 +2,10 @@ Ext.define("IssArt.viewport.Viewport", {
 	extend: "Ext.container.Viewport",
 	
 	requires: [
-		"Ext.layout.container.Fit",
-		
 		"IssArt.framework.Desktop",
 		"IssArt.notepad.ApplicationType",
-		"IssArt.profile.ApplicationType"
+		"IssArt.profile.ApplicationType",
+		"IssArt.console.ApplicationType"
 	],
 	
 	// readonly
@@ -15,16 +14,19 @@ Ext.define("IssArt.viewport.Viewport", {
 	// readonly
 	notepadApplicationType : null,
 	profileApplicationType : null,
+	consoleApplicationType : null,
 	
 	initComponent: function()
 	{
 		this.notepadApplicationType = Ext.create("IssArt.notepad.ApplicationType");
 		this.profileApplicationType = Ext.create("IssArt.profile.ApplicationType");
+		this.consoleApplicationType = Ext.create("IssArt.console.ApplicationType");
 		
 		this.desktop = Ext.create("IssArt.framework.Desktop", {
 			applicationTypes: [
 				this.notepadApplicationType,
-				this.profileApplicationType
+				this.profileApplicationType,
+				this.consoleApplicationType
 			]
 		});
 		
