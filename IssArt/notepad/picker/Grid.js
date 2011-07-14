@@ -1,3 +1,4 @@
+// Список файлов блокнота
 Ext.define("IssArt.notepad.picker.Grid", {
 	extend: "Ext.grid.Panel",
 	
@@ -9,6 +10,7 @@ Ext.define("IssArt.notepad.picker.Grid", {
 	border   : false,
 	forceFit : true,
 	
+	// override
 	initComponent: function()
 	{
 		this.store = Ext.create("IssArt.notepad.model.NotepadStore");

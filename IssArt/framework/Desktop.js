@@ -1,3 +1,4 @@
+// Рабочий стол с панелью запуска задач
 Ext.define("IssArt.framework.Desktop", {
 	extend: "Ext.panel.Panel",
 	
@@ -10,7 +11,7 @@ Ext.define("IssArt.framework.Desktop", {
 	],
 	
 	config: {
-		applicationTypes: null
+		applicationTypes: null // массив IssArt.framework.ApplicationType
 	},
 	
 	// override
@@ -18,8 +19,8 @@ Ext.define("IssArt.framework.Desktop", {
 	border : false,
 	
 	// private
-	bottomToolbar : null,
-	applications  : null,
+	bottomToolbar : null, // Ext.toolbar.Toolbar
+	applications  : null, // массив IssArt.framework.Application
 	
 	// override
 	initComponent: function()
@@ -47,7 +48,8 @@ Ext.define("IssArt.framework.Desktop", {
 	},
 	
 	// public
-	addApplicationType: function(applicationType)
+	addApplicationType: function(
+		applicationType) // IssArt.framework.ApplicationType
 	{
 		this.applicationTypes.push(applicationType);
 		if (!this.rendered)
@@ -62,8 +64,9 @@ Ext.define("IssArt.framework.Desktop", {
 		this.bottomToolbar.add(button);
 	},
 	
-	// public
-	runApplication: function(provider)
+	// private
+	runApplication: function(
+		provider) // класс-потомок IssArt.framework.Application
 	{
 		var application = new provider();
 		this.applications.push(application);

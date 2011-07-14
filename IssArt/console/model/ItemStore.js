@@ -1,3 +1,4 @@
+// Модель списка записей в консоли Ajax-запросов (класс-одиночка)
 Ext.define("IssArt.console.model.ItemStore", {
 	extend: "Ext.data.Store",
 	

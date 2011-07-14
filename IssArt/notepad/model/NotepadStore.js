@@ -1,3 +1,4 @@
+// Модель списка файлов блокнота
 Ext.define("IssArt.notepad.model.NotepadStore", {
 	extend: "Ext.data.Store",
 	

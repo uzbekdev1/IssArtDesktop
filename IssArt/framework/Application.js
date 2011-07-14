@@ -1,3 +1,4 @@
+// Абстрактное приложение
 Ext.define("IssArt.framework.Application", {
 	extend: "Ext.util.Observable",
 	

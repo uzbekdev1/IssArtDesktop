@@ -1,3 +1,4 @@
+// Описание приложения редактора профиля
 Ext.define("IssArt.profile.ApplicationType", {
 	extend: "IssArt.framework.ApplicationType",
 	
@@ -5,6 +6,7 @@ Ext.define("IssArt.profile.ApplicationType", {
 		"IssArt.profile.Application"
 	],
 	
+	// override
 	provider : null,
 	tip      : IssArt.locale.Data.profile.runProfileEditorApplication,
 	iconCls  : "issart-profile-icon"

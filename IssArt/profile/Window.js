@@ -1,8 +1,10 @@
+// Окно редактора профиля
 Ext.define("IssArt.profile.Window", {
 	extend: "Ext.window.Window",
 	
 	requires: [
 		"Ext.button.Button",
+		"Ext.layout.container.Fit",
 		
 		"IssArt.profile.Form",
 		"IssArt.util.Util"
@@ -14,6 +16,12 @@ Ext.define("IssArt.profile.Window", {
 	height    : 190,
 	resizable : false,
 	
+	// readonly
+	form        : null, // IssArt.profile.Form
+	saveButton  : null, // Ext.Button
+	closeButton : null, // Ext.Button
+	
+	// override
 	initComponent: function()
 	{
 		this.form = Ext.create("IssArt.profile.Form");
@@ -41,6 +49,7 @@ Ext.define("IssArt.profile.Window", {
 		this.callParent(arguments);
 	},
 	
+	// private
 	onSaveClick: function()
 	{
 		// TODO: loading mask
@@ -55,11 +64,13 @@ Ext.define("IssArt.profile.Window", {
 		});
 	},
 	
+	// private
 	onSaveSuccess: function()
 	{
 		this.onClose();
 	},
 	
+	// private
 	onClose: function()
 	{
 		this[this.closeAction]();

@@ -1,3 +1,4 @@
+// Приложение блокнота
 Ext.define("IssArt.notepad.Application", {
 	extend: "IssArt.framework.Application",
 	
@@ -6,7 +7,7 @@ Ext.define("IssArt.notepad.Application", {
 	],
 	
 	// readonly
-	window: null,
+	window: null, // IssArt.notepad.Window
 	
 	// override
 	run: function()

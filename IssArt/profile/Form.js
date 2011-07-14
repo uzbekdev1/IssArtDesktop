@@ -1,3 +1,4 @@
+// Форма редактора профиля
 Ext.define("IssArt.profile.Form", {
 	extend: "Ext.form.Panel",
 	
@@ -13,11 +14,12 @@ Ext.define("IssArt.profile.Form", {
 	bodyStyle  : "padding:15px",
 	
 	// readonly
-	nameField         : null,
-	notificationField : null,
-	experienceField   : null,
-	birthDateField    : null,
+	nameField         : null, // Ext.form.field.Text
+	notificationField : null, // Ext.form.field.Checkbox
+	experienceField   : null, // Ext.form.field.Number
+	birthDateField    : null, // Ext.form.field.Date
 	
+	// override
 	initComponent: function()
 	{
 		this.defaults = {
@@ -52,6 +54,7 @@ Ext.define("IssArt.profile.Form", {
 		this.callParent(arguments);
 	},
 	
+	// override
 	afterRender: function()
 	{
 		this.callParent(arguments);
@@ -64,6 +67,7 @@ Ext.define("IssArt.profile.Form", {
 		this.load();
 	},
 	
+	// private
 	load: function()
 	{
 		Ext.Ajax.request({
@@ -75,7 +79,10 @@ Ext.define("IssArt.profile.Form", {
 		});
 	},
 	
-	onLoadSuccess: function(response, options)
+	// private
+	onLoadSuccess: function(
+		response, // XMLHttpRequest
+		options)  // Object
 	{
 		this.form.setValues(Ext.decode(response.responseText));
 	}

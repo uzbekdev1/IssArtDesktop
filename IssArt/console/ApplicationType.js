@@ -1,3 +1,4 @@
+// Описание приложения консоли Ajax-запросов
 Ext.define("IssArt.console.ApplicationType", {
 	extend: "IssArt.framework.ApplicationType",
 	
@@ -5,8 +6,9 @@ Ext.define("IssArt.console.ApplicationType", {
 		"IssArt.console.Application"
 	],
 	
+	// override
 	provider : null,
-	tip      : IssArt.locale.Data.profile.showAjaxConsole,
+	tip      : IssArt.locale.Data.console.showAjaxConsole,
 	iconCls  : "issart-console-icon"
 },
 

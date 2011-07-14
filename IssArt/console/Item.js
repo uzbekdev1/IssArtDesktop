@@ -1,3 +1,4 @@
+// Запись в консоли Ajax-запросов
 Ext.define("IssArt.console.Item", {
 	extend: "Ext.panel.Panel",
 	
@@ -20,9 +21,10 @@ Ext.define("IssArt.console.Item", {
 	animCollapse : true,
 	
 	// readonly
-	titleTpl   : null,
-	contentTpl : null,
+	titleTpl   : null, // Ext.XTemplate
+	contentTpl : null, // Ext.XTemplate
 	
+	// override
 	initComponent: function()
 	{
 		this.title = this.  titleTpl.apply(this.record.data);

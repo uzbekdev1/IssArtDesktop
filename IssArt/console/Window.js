@@ -1,7 +1,10 @@
+// Окно консоли Ajax-запросов
 Ext.define("IssArt.console.Window", {
 	extend: "Ext.window.Window",
 	
 	requires: [
+		"Ext.layout.container.Anchor",
+		
 		"IssArt.console.Item",
 		"IssArt.console.model.ItemStore"
 	],
@@ -14,9 +17,7 @@ Ext.define("IssArt.console.Window", {
 	height    : 200,
 	bodyStyle : "padding: 5px 20px 5px 5px; overflow-y: auto;",
 	
-	// readonly
-	panel: null,
-	
+	// override
 	initComponent: function()
 	{
 		this.store = IssArt.console.model.ItemStore;
@@ -28,6 +29,7 @@ Ext.define("IssArt.console.Window", {
 		this.callParent(arguments);
 	},
 	
+	// override
 	afterRender: function()
 	{
 		this.callParent(arguments);
@@ -36,13 +38,20 @@ Ext.define("IssArt.console.Window", {
 			this.insertItem(i, this.store.getAt(i));
 	},
 	
-	onAdd: function(store, records, index)
+	// private
+	onAdd: function(
+		store,   // IssArt.console.model.ItemStore
+		records, // массив IssArt.console.model.Item
+		index)   // Integer
 	{
 		for (var i = 0; i < records.length; ++i)
 			this.insertItem(index + i, records[i]);
 	},
 	
-	insertItem: function(index, record)
+	// private
+	insertItem: function(
+		index,  // Integer
+		record) // IssArt.console.model.Item
 	{
 		var item = Ext.create("IssArt.console.Item", {
 			record: record

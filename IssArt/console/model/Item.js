@@ -1,3 +1,4 @@
+// Модель записи в консоли Ajax-запросов
 Ext.define("IssArt.console.model.Item", {
 	extend: "Ext.data.Model",
 	

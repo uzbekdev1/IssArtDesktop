@@ -1,10 +1,12 @@
+// Вспомогательные утилиты
 Ext.define("IssArt.util.Util", {
 	singleton: true,
 	
 	requires: [
-		"Ext.window.MessageBox"
+		"Ext.MessageBox"
 	],
 	
+	// Универсальный обработчик проваленных Ajax-запросов
 	onFailure: function(response, options)
 	{
 		Ext.Msg.alert(

@@ -1,3 +1,4 @@
+// Модель файла блокнота
 Ext.define("IssArt.notepad.model.Notepad", {
 	extend: "Ext.data.Model",
 	

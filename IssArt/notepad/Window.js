@@ -1,9 +1,11 @@
+// Окно блокнота
 Ext.define("IssArt.notepad.Window", {
 	extend: "Ext.window.Window",
 	
 	requires: [
 		"Ext.button.Button",
 		"Ext.form.field.HtmlEditor",
+		"Ext.layout.container.Fit",
 		"Ext.toolbar.Toolbar",
 		
 		"IssArt.util.Util",
@@ -23,7 +25,8 @@ Ext.define("IssArt.notepad.Window", {
 	saveAsButton : null, // Ext.Button
 	toolbar      : null, // Ext.toolbar.Toolbar
 	
-	name         : null, // String, имя открытого файла
+	// readonly
+	name: null, // String, имя открытого файла
 	
 	// override
 	initComponent: function()
@@ -96,7 +99,9 @@ Ext.define("IssArt.notepad.Window", {
 	},
 	
 	// private
-	onOpenSelect: function(picker, name)
+	onOpenSelect: function(
+		picker, // IssArt.notepad.Picker
+		name)   // String
 	{
 		this.name = name;
 		
@@ -114,13 +119,19 @@ Ext.define("IssArt.notepad.Window", {
 		});
 	},
 	
-	onOpenSuccess: function(response, options)
+	// private
+	onOpenSuccess: function(
+		response, // XMLHttpRequest
+		options)  // Object
 	{
 		var result = Ext.decode(response.responseText);
 		this.htmlEditor.setValue(result.content);
 	},
 	
-	save: function(afterSave, scope)
+	// private
+	save: function(
+		afterSave, // Ext.Ajax.request success callback
+		scope)     // Object
 	{
 		if (afterSave)
 			this.afterSave = Ext.Function.pass(afterSave, [], scope);
@@ -131,7 +142,10 @@ Ext.define("IssArt.notepad.Window", {
 			this.runSave();
 	},
 	
-	saveAs: function(afterSave, scope)
+	// private
+	saveAs: function(
+		afterSave, // Ext.Ajax.request success callback
+		scope)     // Object
 	{
 		if (afterSave)
 			this.afterSave = Ext.Function.pass(afterSave, [], scope);
@@ -145,13 +159,17 @@ Ext.define("IssArt.notepad.Window", {
 		}).show();
 	},
 	
-	onSaveSelect: function(picker, name)
+	// private
+	onSaveSelect: function(
+		picker, // IssArt.notepad.Picker
+		name)   // String
 	{
 		this.name = name;
 		this.runSave();
 	},
 	
-	runSave: function(onSuccess)
+	// private
+	runSave: function()
 	{
 		// TODO: loading mask
 		
@@ -168,6 +186,7 @@ Ext.define("IssArt.notepad.Window", {
 		});
 	},
 	
+	// override
 	close: function()
 	{
 		Ext.Msg.show({
@@ -180,6 +199,7 @@ Ext.define("IssArt.notepad.Window", {
 		});
 	},
 	
+	// private
 	onCloseConfirm: function(btn)
 	{
 		if (btn == "cancel")
@@ -191,6 +211,7 @@ Ext.define("IssArt.notepad.Window", {
 			this.runClose();
 	},
 	
+	// private
 	runClose: function()
 	{
 		IssArt.notepad.Window.superclass.close.call(this);

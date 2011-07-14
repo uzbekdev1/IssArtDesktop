@@ -1,3 +1,4 @@
+// Описание приложения блокнота
 Ext.define("IssArt.notepad.ApplicationType", {
 	extend: "IssArt.framework.ApplicationType",
 	
@@ -5,6 +6,7 @@ Ext.define("IssArt.notepad.ApplicationType", {
 		"IssArt.notepad.Application"
 	],
 	
+	// override
 	provider : null,
 	tip      : IssArt.locale.Data.notepad.runNotepadApplication,
 	iconCls  : "issart-notepad-icon"

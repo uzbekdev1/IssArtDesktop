@@ -1,7 +1,10 @@
+// Viewport - корень всего веб-приложения
 Ext.define("IssArt.viewport.Viewport", {
 	extend: "Ext.container.Viewport",
 	
 	requires: [
+		"Ext.layout.container.Fit",
+		
 		"IssArt.framework.Desktop",
 		"IssArt.notepad.ApplicationType",
 		"IssArt.profile.ApplicationType",
@@ -9,13 +12,14 @@ Ext.define("IssArt.viewport.Viewport", {
 	],
 	
 	// readonly
-	desktop: null,
+	desktop: null, // IssArt.framework.Desktop
 	
 	// readonly
-	notepadApplicationType : null,
-	profileApplicationType : null,
-	consoleApplicationType : null,
+	notepadApplicationType : null, // IssArt.notepad.ApplicationType
+	profileApplicationType : null, // IssArt.profile.ApplicationType
+	consoleApplicationType : null, // IssArt.console.ApplicationType
 	
+	// override
 	initComponent: function()
 	{
 		this.notepadApplicationType = Ext.create("IssArt.notepad.ApplicationType");

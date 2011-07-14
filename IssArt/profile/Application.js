@@ -1,3 +1,4 @@
+// Приложение редактора профиля
 Ext.define("IssArt.profile.Application", {
 	extend: "IssArt.framework.Application",
 	
@@ -6,7 +7,7 @@ Ext.define("IssArt.profile.Application", {
 	],
 	
 	// readonly
-	window: null,
+	window: null, // IssArt.profile.Window
 	
 	// override
 	run: function()
