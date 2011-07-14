@@ -124,7 +124,7 @@ Ext.define("IssArt.notepad.Window", {
 	save: function(afterSave, scope)
 	{
 		if (afterSave)
-			this.afterSave = Ext.Function.pass(afterSave, null, scope);
+			this.afterSave = Ext.Function.pass(afterSave, [], scope);
 		
 		if (!this.name)
 			this.saveAs();
@@ -135,7 +135,7 @@ Ext.define("IssArt.notepad.Window", {
 	saveAs: function(afterSave, scope)
 	{
 		if (afterSave)
-			this.afterSave = Ext.Function.pass(afterSave, null, scope);
+			this.afterSave = Ext.Function.pass(afterSave, [], scope);
 		
 		Ext.create("IssArt.notepad.Picker", {
 			action    : "save",
