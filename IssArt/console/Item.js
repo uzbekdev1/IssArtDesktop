@@ -36,13 +36,12 @@ function()
 {
 	this.prototype.titleTpl = new Ext.XTemplate("{method}: {url}");
 	
-	var textArea = '<textarea readonly="readonly" style="width: 100%; height: auto; padding: 2px 5px;" ';
 	this.prototype.contentTpl = new Ext.XTemplate(
-		'<div class="console-item-content">',
-			'<div class="console-item-header">Params:</div>',
-			textArea + 'rows=3>{params}</textarea>',
-			'<div class="console-item-header">Result:</div>',
-			textArea + 'rows=6>{result}</textarea>',
+		'<div class="issart-console-item-content">',
+			'<div class="issart-console-item-header">Params:</div>',
+			'<textarea readonly="readonly" class="issart-console-item-textarea" rows=3>{params}</textarea>',
+			'<div class="issart-console-item-header">Result:</div>',
+			'<textarea readonly="readonly" class="issart-console-item-textarea" rows=6>{result}</textarea>',
 		'</div>'
 	);
 }

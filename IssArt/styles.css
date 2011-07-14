@@ -13,6 +13,11 @@
 	background-image: url("images/profile.png") !important;
 }
 
+.issart-console-icon
+{
+	background-image: url("images/console.png") !important;
+}
+
 .issart-console-item-content
 {
 	padding: 0 5 5 5;
@@ -25,7 +30,9 @@
 	padding-top: 5px;
 }
 
-.issart-console-icon
+.issart-console-item-textarea
 {
-	background-image: url("images/console.png") !important;
+	width: 100%;
+	height: auto;
+	padding: 2px 5px;
 }
