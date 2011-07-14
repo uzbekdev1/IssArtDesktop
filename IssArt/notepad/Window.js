@@ -7,8 +7,8 @@ Ext.define("IssArt.notepad.Window", {
 		"Ext.form.field.HtmlEditor",
 		"Ext.toolbar.Toolbar",
 		
-		"IssArt.util.Util"/*,
-		"IssArt.notepad.Picker"*/
+		"IssArt.util.Util",
+		"IssArt.notepad.Picker"
 	],
 	
 	// override

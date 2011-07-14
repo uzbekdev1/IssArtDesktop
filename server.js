@@ -193,7 +193,6 @@ Ext.require("Ext.data.Connection", function() {
 			return request.call(this, config);
 		
 		config.url = config.url.split("?")[0];
-		console.log("loading ", config);
 		
 		setTimeout(function() {
 			if (!Server.Api[config.url]) {
