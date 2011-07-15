@@ -49,8 +49,6 @@ Ext.define("IssArt.profile.Form", {
 			}
 		];
 		
-		//this.plugins = [ new Ext.ux.form.AutoFocus() ];
-		
 		this.callParent(arguments);
 	},
 	

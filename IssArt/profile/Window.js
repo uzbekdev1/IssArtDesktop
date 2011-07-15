@@ -7,6 +7,7 @@ Ext.define("IssArt.profile.Window", {
 		"Ext.layout.container.Fit",
 		
 		"IssArt.profile.Form",
+		"IssArt.ui.form.AutoFocus",
 		"IssArt.util.Util"
 	],
 	
@@ -17,14 +18,19 @@ Ext.define("IssArt.profile.Window", {
 	resizable : false,
 	
 	// readonly
-	form        : null, // IssArt.profile.Form
-	saveButton  : null, // Ext.Button
-	closeButton : null, // Ext.Button
+	form          : null, // IssArt.profile.Form
+	formAutoFocus : null, // IssArt.ui.form.AutoFocus
+	saveButton    : null, // Ext.Button
+	closeButton   : null, // Ext.Button
 	
 	// override
 	initComponent: function()
 	{
-		this.form = Ext.create("IssArt.profile.Form");
+		this.formAutoFocus = Ext.create("IssArt.ui.form.AutoFocus", { window: this });
+		
+		this.form = Ext.create("IssArt.profile.Form", {
+			plugins: [ this.formAutoFocus ]
+		});
 		
 		this.items = [ this.form ];
 		this.layout = "fit";
