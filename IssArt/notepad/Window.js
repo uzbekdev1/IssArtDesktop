@@ -105,17 +105,18 @@ Ext.define("IssArt.notepad.Window", {
 	{
 		this.name = name;
 		
-		// TODO: loading mask
+		this.getEl().mask(IssArt.locale.Data.progress.loading);
 		
 		Ext.Ajax.request({
-			url     : "issart/action/getnotepad",
-			params  : {
-				name    : name
+			url      : "issart/action/getnotepad",
+			params   : {
+				name     : name
 			},
-			method  : "GET",
-			success : this.onOpenSuccess,
-			failure : IssArt.util.Util.onFailure,
-			scope   : this
+			method   : "GET",
+			success  : this.onOpenSuccess,
+			failure  : IssArt.util.Util.onFailure,
+			callback : function() { this.getEl().unmask() },
+			scope    : this
 		});
 	},
 	
@@ -171,18 +172,19 @@ Ext.define("IssArt.notepad.Window", {
 	// private
 	runSave: function()
 	{
-		// TODO: loading mask
+		this.getEl().mask(IssArt.locale.Data.progress.saving);
 		
 		Ext.Ajax.request({
-			url     : "issart/action/setnotepad",
-			params  : {
-				name    : this.name,
-				content : this.htmlEditor.getValue()
+			url      : "issart/action/setnotepad",
+			params   : {
+				name     : this.name,
+				content  : this.htmlEditor.getValue()
 			},
-			method  : "GET",
-			success : this.afterSave,
-			failure : IssArt.util.Util.onFailure,
-			scope   : this
+			method   : "GET",
+			success  : this.afterSave,
+			failure  : IssArt.util.Util.onFailure,
+			callback : function() { this.getEl().unmask() },
+			scope    : this
 		});
 	},
 	

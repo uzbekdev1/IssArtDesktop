@@ -70,12 +70,15 @@ Ext.define("IssArt.profile.Form", {
 	// private
 	load: function()
 	{
+		this.getEl().mask(IssArt.locale.Data.progress.loading);
+		
 		Ext.Ajax.request({
-			url     : "issart/action/getuser",
-			method  : "GET",
-			success : this.onLoadSuccess,
-			failure : IssArt.util.Util.onFailure,
-			scope   : this
+			url      : "issart/action/getuser",
+			method   : "GET",
+			success  : this.onLoadSuccess,
+			failure  : IssArt.util.Util.onFailure,
+			callback : function() { this.getEl().unmask() },
+			scope    : this
 		});
 	},
 	

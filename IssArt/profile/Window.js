@@ -52,15 +52,16 @@ Ext.define("IssArt.profile.Window", {
 	// private
 	onSaveClick: function()
 	{
-		// TODO: loading mask
+		this.getEl().mask(IssArt.locale.Data.progress.saving);
 		
 		Ext.Ajax.request({
-			url     : "issart/action/setuser",
-			params  : this.form.form.getValues(),
-			method  : "GET",
-			success : this.onSaveSuccess,
-			failure : IssArt.util.Util.onFailure,
-			scope   : this
+			url      : "issart/action/setuser",
+			params   : this.form.form.getValues(),
+			method   : "GET",
+			success  : this.onSaveSuccess,
+			failure  : IssArt.util.Util.onFailure,
+			callback : function() { this.getEl().unmask() },
+			scope    : this
 		});
 	},
 	
