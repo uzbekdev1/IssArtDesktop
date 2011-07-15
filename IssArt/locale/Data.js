@@ -1,4 +1,6 @@
-{
+Ext.ns("IssArt.locale");
+
+IssArt.locale.Data = {
 	"button": {
 		"close"                       : "Close",
 		"open"                        : "Open",
@@ -43,4 +45,4 @@
 		"noRequestsSentYet"           : "No requests sent yet",
 		"showAjaxConsole"             : "Show Ajax console"
 	}
-}
+};
