@@ -1,0 +1,7 @@
+Download ExtJS and put into "extjs" folder in root of this repository.
+The folder must contain:
+- resources/
+- src/
+- ext-all.css
+- ext.js
+- ext-dev.js
